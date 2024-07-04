@@ -1,0 +1,116 @@
+#Department API Test
+
+###GET
+GET /api/v1/departments HTTP/1.1
+Host: localhost:8080
+
+###GET
+GET /api/v1/departments/1 HTTP/1.1
+Host: localhost:8080
+
+###POST
+POST /api/v1/departments HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "departmentName" : "Computer Engineering",
+  "departmentDescription" : "The Department of Computer Engineering has the strategy to equip the students with the qualifications to solve real-life problems and sustain continuous professional development. Being in an age of technology, the graduates will have lots of opportunities such as hardware and software development in various fields if the field of computing is right for you, the Department of Computer Engineering at Medipol University is the perfect place for you to be innovative, creative, team worker, design new products and solve problems."
+}
+
+###POST
+POST /api/v1/departments HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "departmentName" : "Electric and Electronics Engineering",
+  "departmentDescription" : "Our department provides individual oriented education with few selected students, aiming to have graduates with fully equipped, aware of the importance of life-long learning and open to improvement, through an education program that emphasizes hands-on learning, involves undergraduate students in research projects, and promoting creativity. Our department, with its a growing number of experienced and dynamic faculty members, is aiming to be a leader in both research and education. Our faculty members and graduates contribute to the development of science and technology and address the needs of our country through collaboration with national and international industry, state agencies, and research labs."
+}
+
+###POST
+POST /api/v1/departments HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "departmentName" : "Business and Administration",
+  "departmentDescription" : "The Department of Business Administration attracts top ranking students who rank in the highest 0.1% among 2.5 million applicants in the centralized university placement exams each year. In addition, students admitted to the BA undergraduate program have higher rankings in this exam compared to students admitted to the other social science undergraduate programs of METU. Due to the high caliber of its students, the Department hosts many of the top national and international company recruiting events for competitions, internships, and employment. Business leaders from leading multinational and Turkish corporations work together with METU BA students in class presentations, product development and problem solving competitions, and career development presentations. The fact that METU BA graduates are in leadership positions of numerous organizations nationally and internationally creates a climate of dynamic interaction between the students and industry professionals. More than half of the graduating students sign their first job contracts before they actually graduate in June."
+}
+
+
+###PUT
+PUT /api/v1/departments/3 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "departmentName" : "Psychology",
+  "departmentDescription" : "In METU Psychology department, it is aimed to teach students a multi-perspective via departmental and non-departmental selective and obligatory courses (Biology, Sociology, Economics) and major and minor programs. Undergraduate and graduate programs have been examined regularly in light of current scientific developments, and required changes and regulations were implemented. Beginning from 2007, both student's practice experiences were consolidated and the students were encouraged to engage in social responsibility projects by adding summer internships to the undergraduate curriculum. In 2013, an obligatory ethics course was added to the undergraduate curriculum."
+}
+
+
+###DELETE
+DELETE /api/v1/departments/4 HTTP/1.1
+Host: localhost:8080
+
+
+#Student API Test
+
+###GET
+GET /api/v1/students HTTP/1.1
+Host: localhost:8080
+
+###GET
+GET /api/v1/students/1 HTTP/1.1
+Host: localhost:8080
+
+
+###POST
+POST /api/v1/students HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "firstName" : "Arda",
+  "lastName" : "Ocak",
+  "email" :  "ardaocak56@gmail.com",
+  "departmentId" : 1
+}
+
+###POST
+POST /api/v1/students HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "firstName" : "Kevser",
+  "lastName" : "Kutlu",
+  "email" :  "kk@gmail.com",
+  "departmentId" : 2
+}
+
+###PUT
+PUT /api/v1/students/2 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "firstName" : "Kevser",
+  "lastName" : "Kutlu",
+  "email" :  "kk@gmail.com",
+  "departmentId" : 3
+}
+
+
+###DELETE
+DELETE /api/v1/students/2 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "firstName" : "Kevser",
+  "lastName" : "Kutlu",
+  "email" :  "kk@gmail.com",
+  "departmentId" : 3
+}
