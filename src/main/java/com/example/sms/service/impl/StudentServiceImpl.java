@@ -28,9 +28,14 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentDto createStudent(StudentDto studentDto) {
-        Department department = departmentRepository.findById(studentDto.getDepartmentId())
-                .orElseThrow(() -> new RuntimeException("Department not found"));
-        Student student = studentMapper.mapToStudent(studentDto, department);
+        Student student;
+        if (studentDto.getDepartmentId() != null) {
+            Department department = departmentRepository.findById(studentDto.getDepartmentId())
+                    .orElseThrow(() -> new RuntimeException("Department not found"));
+            student = studentMapper.mapToStudent(studentDto, department);
+        } else {
+            student = studentMapper.mapToStudent(studentDto);
+        }
         Student savedStudent = studentRepository.save(student);
         return studentMapper.mapToStudentDto(savedStudent);
     }
@@ -65,5 +70,13 @@ public class StudentServiceImpl implements StudentService {
         Student theStudent = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student not found"));
         studentRepository.delete(theStudent);
 
+    }
+
+    @Override
+    public StudentDto addStudentToDepartment(Long studentId, Long departmentId) {
+        Student theStudent = studentRepository.findById(studentId).orElseThrow(() -> new RuntimeException("Student not found"));
+        Department theDepartment = departmentRepository.findById(departmentId).orElseThrow(() -> new RuntimeException("Department not found"));
+        theStudent.setDepartment(theDepartment);
+        return studentMapper.mapToStudentDto(studentRepository.save(theStudent));
     }
 }

@@ -22,6 +22,8 @@ public class StudentDto {
     private Long departmentId;
     private DepartmentDto department;
 
+
+
     public Long getId() {
         return id;
     }

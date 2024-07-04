@@ -45,4 +45,10 @@ public class StudentController {
         studentService.deleteStudent(id);
         return ResponseEntity.ok("Student deleted successfully");
     }
+
+    @PostMapping("/{studentId}/departments/{departmentId}")
+    public ResponseEntity<StudentDto> addStudentToDepartment(@PathVariable Long studentId, @PathVariable Long departmentId) {
+        StudentDto studentDto = studentService.addStudentToDepartment(studentId, departmentId);
+        return ResponseEntity.ok(studentDto);
+    }
 }

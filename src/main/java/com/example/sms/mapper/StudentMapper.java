@@ -18,8 +18,8 @@ public class StudentMapper {
                 student.getFirstName(),
                 student.getLastName(),
                 student.getEmail(),
-                student.getDepartment().getId(),
-                departmentMapper.mapToDepartmentDto(student.getDepartment())
+                student.getDepartment() != null ? student.getDepartment().getId() : null,
+                student.getDepartment() != null ? departmentMapper.mapToDepartmentDto(student.getDepartment()) : null
         );
     }
 
